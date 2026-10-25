@@ -1,6 +1,6 @@
-# AULIGMA — Dirección visual y sistema de diseño v1
+# AULIGMA — Geometría razonada · Sistema de diseño aprobado
 
-> Documento de especificación inicial, no mockups aprobados ni resultados de prueba. Es una propuesta para discusión previa a la implementación.
+> Identidad aprobada para la Fase 1. Dirección editorial académica premium con precisión de laboratorio. La aprobación visual no equivale a una certificación de accesibilidad; las verificaciones se documentan en `docs/FASE_1.md` (ruta desde la raíz).
 
 ## 1. Posicionamiento
 
@@ -12,32 +12,31 @@
 
 **Principio rector:** primero claridad y confianza; después atractivo visual. La experiencia debería sentirse de nivel producto, no de plantilla genérica.
 
-## 2. Diseño propuesto
+## 2. Diseño aprobado
 
 ### Colores semánticos
 
 | Token | Claro (propuesto) | Oscuro (propuesto) | Uso |
 |---|---|---|---|
-| `--background` | `#F7F9FC` | `#0B1220` | Fondo general |
-| `--surface` | `#FFFFFF` | `#111C2D` | Paneles/tarjetas |
-| `--text-primary` | `#132237` | `#EAF1FB` | Texto principal |
-| `--text-muted` | `#4C5D70` | `#B4C3D7` | Metadatos |
-| `--primary` | `#3048B7` | `#8BA7FF` | Acción principal |
-| `--accent` | `#087C86` | `#58D0D3` | Datos/gráficas destacados |
-| `--border` | `#DCE4EF` | `#2A3B50` | Divisores |
-| `--success` | `#16794C` | `#55D6A1` | Éxito |
-| `--warning` | `#915A08` | `#F6C96E` | Revisión |
-| `--danger` | `#B4233C` | `#FF8595` | Error |
+| `--background` | `#F6F7F3` | `#0B1422` | Fondo general |
+| `--surface` | `#FFFFFF` | `#131F30` | Paneles/tarjetas |
+| `--text` | `#142238` | `#EAF0F6` | Texto principal |
+| `--muted` | `#596574` | `#B0BDCB` | Metadatos |
+| `--primary` | `#3558D8` | `#9CB4FF` | Acción principal |
+| `--accent` | `#087D76` | `#69D6C9` | Datos y éxito |
+| `--border` | `#DCE1DC` | `#304154` | Divisores |
+| `--warning` | `#85520A` | `#F2C578` | Revisión |
+| `--danger` | `#B0243C` | `#FF9CAE` | Error |
 
-Estas son **propuestas iniciales**, no sustituyen pruebas de contraste por combinación. Validar cada par texto/fondo.
+Tokens centralizados en `src/styles.css`. El primario oscuro usa tinta oscura como texto del botón. Validar contraste por combinación y estado.
 
 ### Tipografía
 
-- Inter para contenido, navegación, tablas y controles.
-- Plus Jakarta Sans para títulos, si el resultado y la carga visual lo justifican; si no, Inter en todo el sistema.
+- Manrope para contenido, navegación, tablas y controles; alojada localmente.
+- Source Serif 4 para títulos de página, bienvenida y acentos editoriales; uso selectivo, alojada localmente.
 - KaTeX para expresiones matemáticas. Nunca rasterizar fórmulas como imágenes para el contenido central.
 - Fallback: `system-ui, sans-serif`.
-- Escala: hero 36–40px, h1 30–32px, h2 24px, h3 20px, cuerpo 16px, soporte 14px, etiquetas secundarias 12px.
+- Escala: bienvenida 48–80px según ancho, h1 32–44px, secciones 20–28px, cuerpo 16px, soporte 14px, metadatos secundarios 12px.
 - Interlineado: cuerpo 1.5–1.6; títulos 1.15–1.25. Prohibido usar texto diminuto para ahorrar espacio.
 
 ### Retícula y espaciados
@@ -94,8 +93,10 @@ La implementación debe usar tokens centralizados. Evaluar `shadcn/ui` por acces
 El resultado de un modelo de IA se considera **borrador**. Exigir tres estados claros:
 
 - `Extraído`: contenido detectado y sin validar.
-- `Verificado`: expresión y resultado comprobados en el alcance matemático admitido.
-- `Aprobado`: revisado por docente, publicable.
+- `Verificado`: en el producto futuro, expresión y resultado comprobados en el alcance matemático admitido.
+- `Aprobado`: en el producto futuro, revisado por docente y apto para publicar.
+
+En Fase 1 los tres estados son explícitamente **simulados**. No certifican corrección matemática ni publican contenido. Editar la transcripción restablece el estado a Extraído. El margen de verificación hace visible esta secuencia junto al ejercicio.
 
 Errores de OCR o soluciones no verificables deben mostrar corrección manual y evidencia de procedencia. La presentación debe inspirar confianza sin simular certeza.
 
@@ -114,3 +115,7 @@ Si Codex carece de navegador, deberá informar limitación y **no inventar captu
 ## 8. Alcance de primera iteración
 
 Solo diseñar el sistema de diseño, UI kit y prototipos navegables de los cuatro flujos críticos. No construir toda la plataforma, ni cuentas reales, ni integración IA, ni persistencia en esta fase. Se revisará antes de implementar backend.
+
+## 9. Refinamiento de Fase 1.1
+
+Se conserva la identidad aprobada. El dashboard prioriza aulas y pendientes, y reduce ilustraciones y frases ornamentales. Banco y evaluaciones tienen flujos propios, conectados desde el aula. La práctica dispone de modo concentración, explicaciones preparadas paso a paso y conservación local de respuestas por pestaña. La tipografía funcional secundaria se ajusta a 14 px; los metadatos pueden usar 12 px. Los ajustes están en `src/refinements.css`, sobre los tokens originales. Alcance y verificación: `docs/FASE_1_1.md` (rutas desde la raíz).
